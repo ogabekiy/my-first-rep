@@ -1,0 +1,83 @@
+from PyQt5.QtGui import QPalette, QColor
+from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QApplication,QHBoxLayout
+
+a = QApplication([])
+
+class Color(QWidget):
+    def __init__(self, color):
+        super().__init__()
+        self.setAutoFillBackground(True)
+        palette = self.palette()
+        palette.setColor(QPalette.Window, QColor(color))
+        self.setPalette(palette)
+
+class window(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.asosiy_w = QWidget() # asosiy
+        self.asosiy_lay = QHBoxLayout()
+        self.asosiy_w.setLayout(self.asosiy_lay)
+
+        # 1
+        self.main_widget = QWidget()
+        self.main_layout = QVBoxLayout()
+        self.main_widget.setLayout(self.main_layout)
+
+        self.v_wid1 = QWidget()
+        self.v_lay1 = QVBoxLayout()
+        self.v_wid1.setLayout(self.v_lay1)
+        self.v_lay1.addWidget(Color("red"))
+        # self.v_lay1.addWidget(Color("green"))
+
+        self.v_wid2 = QWidget()
+        self.v_lay2 = QHBoxLayout()
+        self.v_wid2.setLayout(self.v_lay2)
+        self.v_lay2.addWidget(Color("green"))
+        self.v_lay2.addWidget(Color("yellow"))
+        # self.v_lay2.addWidget(Color("magenta"))
+
+
+        self.v_wid3 = QWidget()
+        self.v_lay3 = QVBoxLayout()
+        self.v_wid3.setLayout(self.v_lay3)
+        self.v_lay3.addWidget(Color("pink"))
+
+        self.main_layout.addWidget(self.v_wid1)
+        self.main_layout.addWidget(self.v_wid2)
+        self.main_layout.addWidget(self.v_wid3)
+
+
+        # 2 - ustun
+
+        self.main_widget2 = QWidget()
+        self.main_layout2 = QVBoxLayout()
+        self.main_widget2.setLayout(self.main_layout2)
+
+
+
+        self.v_wid4 = QWidget()
+        self.v_lay4 = QHBoxLayout()
+        self.v_wid4.setLayout(self.v_lay4)
+        self.v_lay4.addWidget(Color("green"))
+        self.v_lay4.addWidget(Color("yellow"))
+        self.v_lay4.addWidget(Color("brown"))
+        self.v_lay4.addWidget(Color("cyan"))
+
+        self.v_wid5 = QWidget()
+        self.v_lay5 = QVBoxLayout()
+        self.v_wid5.setLayout(self.v_lay5)
+        self.v_lay5.addWidget(Color("crimson"))
+
+        self.main_layout2.addWidget(self.v_wid4)
+        self.main_layout2.addWidget(self.v_wid5)
+
+        self.asosiy_lay.addWidget(self.main_widget)
+        self.asosiy_lay.addWidget(self.main_widget2)
+
+        self.asosiy_w.setFixedSize(700,500)
+        self.setCentralWidget(self.asosiy_w)
+
+
+c=window()
+c.show()
+a.exec()

@@ -1,0 +1,85 @@
+from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QApplication, QHBoxLayout, QLineEdit, QPushButton, QLabel
+
+a = QApplication([])
+
+class applic(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.a = QLineEdit()
+        self.b = QLineEdit()
+        self.c = QLineEdit()
+        self.d = QLineEdit()
+        self.e = QLineEdit()
+
+        self.a1 = QLabel("name: ")
+        self.b1 = QLabel("email: ")
+        self.c1 = QLabel("password: ")
+        self.d1 = QLabel("Confirm Password: ")
+        self.e1 = QLabel("Phone: ")
+
+
+        self.btn = QPushButton("Sign Up")
+        self.setWindowTitle('Sign Up Form')
+        self.main_w=QWidget()
+        self.main_lay = QVBoxLayout()
+        self.main_w.setLayout(self.main_lay)
+
+        self.qator1 = QWidget()
+        self.qator1_lay = QHBoxLayout()
+        self.qator1.setLayout(self.qator1_lay)
+
+        self.qator1_lay.addWidget(self.a1)
+        self.qator1_lay.addWidget(self.a)
+
+
+        self.qator2 = QWidget()
+        self.qator2_lay = QHBoxLayout()
+        self.qator2.setLayout(self.qator2_lay)
+
+        self.qator2_lay.addWidget(self.b1)
+        self.qator2_lay.addWidget(self.b)
+
+        self.qator3 = QWidget()
+        self.qator3_lay = QHBoxLayout()
+        self.qator3.setLayout(self.qator3_lay)
+
+        self.qator3_lay.addWidget(self.c1)
+        self.qator3_lay.addWidget(self.c)
+
+        self.qator4 = QWidget()
+        self.qator4_lay = QHBoxLayout()
+        self.qator4.setLayout(self.qator4_lay)
+
+        self.qator4_lay.addWidget(self.d1)
+        self.qator4_lay.addWidget(self.d)
+
+        self.qator5 = QWidget()
+        self.qator5_lay = QHBoxLayout()
+        self.qator5.setLayout(self.qator5_lay)
+
+        self.qator5_lay.addWidget(self.e1)
+        self.qator5_lay.addWidget(self.e)
+
+
+        self.main_lay.addWidget(self.qator1)
+        self.main_lay.addWidget(self.qator2)
+        self.main_lay.addWidget(self.qator3)
+        self.main_lay.addWidget(self.qator4)
+        self.main_lay.addWidget(self.qator5)
+
+        self.main_lay.addWidget(self.btn)
+
+        # self.qator1.setFixedSize(100,300)
+        # self.qator2.setFixedSize(100,300)
+        # self.qator3.setFixedSize(100,300)
+        # self.qator4.setFixedSize(100,300)
+        # self.qator5.setFixedSize(100,300)
+
+
+        self.main_w.setFixedSize(500,400)
+        self.setCentralWidget(self.main_w)
+
+app = applic()
+app.show()
+a.exec()
+

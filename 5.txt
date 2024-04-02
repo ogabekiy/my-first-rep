@@ -1,0 +1,55 @@
+from PyQt5.QtGui import QPalette, QColor
+from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QApplication,QHBoxLayout
+
+a = QApplication([])
+
+class Color(QWidget):
+    def __init__(self, color):
+        super().__init__()
+        self.setAutoFillBackground(True)
+        palette = self.palette()
+        palette.setColor(QPalette.Window, QColor(color))
+        self.setPalette(palette)
+
+class window(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        # 1
+        self.main_widget = QWidget()
+        self.main_layout = QHBoxLayout()
+        self.main_widget.setLayout(self.main_layout)
+
+
+        self.v_wid1 = QWidget()
+        self.v_lay1 = QHBoxLayout()
+        self.v_wid1.setLayout(self.v_lay1)
+        self.v_lay1.addWidget(Color("red"))
+
+
+        self.v_wid2 = QWidget()
+        self.v_lay2 = QHBoxLayout()
+        self.v_wid2.setLayout(self.v_lay2)
+        self.v_lay2.addWidget(Color("blue"))
+
+
+        self.v_wid3 = QWidget()
+        self.v_lay3 = QVBoxLayout()
+        self.v_wid3.setLayout(self.v_lay3)
+        self.v_lay3.addWidget(Color("black"))
+        self.v_lay3.addWidget(Color("green"))
+        self.v_lay3.addWidget(Color("brown"))
+
+
+
+        self.main_layout.addWidget(self.v_wid1)
+        self.main_layout.addWidget(self.v_wid2)
+        self.main_layout.addWidget(self.v_wid3)
+        
+        
+        self.setCentralWidget(self.main_widget)
+
+
+c=window()
+c.show()
+a.exec()

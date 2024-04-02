@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 print('salom')
 print("qale")
+=======
+print('salom')
+>>>>>>> 1eb5d3646941796d8e5baaf9bc561d96b7443b94
